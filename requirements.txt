@@ -1,0 +1,9 @@
+keras=2.2.4
+pillow
+matplotlib
+scikit-learn
+scikit-image
+opencv
+pydot
+tensorflow=1.13.1
+flask
