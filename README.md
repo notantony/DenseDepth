@@ -1,3 +1,88 @@
+# Parent repository
+[Covers 2019](https://github.com/notantony/covers2019) 
+
+# API
+## Image depthmap building
+Build depth map for image. Generated depthmap resolution is constant, 240x320.
+
+#### Input:
+Address: `/colormap`, POST \
+MIMEs: `applcation/json`, `image/jpeg`, `image/png`
+
+Parameters when Json: \
+`data`: base64-encoded image.
+
+#### Output:
+JSON: \
+`depthmap`: base64-encoded bytes representation of numpy array containing depth of each pixel. Depths are normalized to (0, 1) range according to expected distance in range (10, 10000) cm. \
+Serialized with [numpy.tobytes()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tobytes.html), can be desrialized with [numpy.frombuffer()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.frombuffer.html). \
+`shape`: shape of the array, equals to `(240, 320)`. \
+`dtype`: dtype of the array, equals to `float32`.
+
+<details>
+  <summary> <b>Sample: </b> </summary> 
+
+  Request JSON:
+  ```json
+  {
+      "data" : "/9j/4AAQSkZJRgABAQEASABIAAD//gATQ3JlYXRlZCB3a..."
+  }
+  ```
+  
+  Response:
+  ```json
+  {
+      "depthmap":"mFCtPUgirj1FFa89XU+vPVgPrz0twa49uJK...",
+      "dtype": "float32",
+      "shape": "(240, 320)"
+  }
+  ```
+</details>
+
+# Running
+
+Run with `run.sh`:
+```
+chmod +x run.sh
+./run.sh
+```
+
+# Reference
+
+See [origin repository](https://github.com/CSAILVision/semantic-segmentation-pytorch) for more info.
+
+Semantic Understanding of Scenes through ADE20K Dataset. B. Zhou, H. Zhao, X. Puig, T. Xiao, S. Fidler, A. Barriuso and A. Torralba. International Journal on Computer Vision (IJCV), 2018. (https://arxiv.org/pdf/1608.05442.pdf)
+
+    @article{zhou2018semantic,
+      title={Semantic understanding of scenes through the ade20k dataset},
+      author={Zhou, Bolei and Zhao, Hang and Puig, Xavier and Xiao, Tete and Fidler, Sanja and Barriuso, Adela and Torralba, Antonio},
+      journal={International Journal on Computer Vision},
+      year={2018}
+    }
+
+Scene Parsing through ADE20K Dataset. B. Zhou, H. Zhao, X. Puig, S. Fidler, A. Barriuso and A. Torralba. Computer Vision and Pattern Recognition (CVPR), 2017. (http://people.csail.mit.edu/bzhou/publication/scene-parse-camera-ready.pdf)
+
+    @inproceedings{zhou2017scene,
+        title={Scene Parsing through ADE20K Dataset},
+        author={Zhou, Bolei and Zhao, Hang and Puig, Xavier and Fidler, Sanja and Barriuso, Adela and Torralba, Antonio},
+        booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+        year={2017}
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## [High Quality Monocular Depth Estimation via Transfer Learning (arXiv 2018)](https://arxiv.org/abs/1812.11941)
 **[Ibraheem Alhashim](https://ialhashim.github.io/)** and **Peter Wonka**
 

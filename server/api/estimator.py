@@ -19,6 +19,7 @@ custom_objects = {'BilinearUpSampling2D': BilinearUpSampling2D, 'depth_loss_func
 
 
 class Estimator():
+    # min/max in centimeters
     def __init__(self, model_path, min_depth=10, max_depth=1000):
         print('Loading model...')
 
